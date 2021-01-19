@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import CommentDetail from '../CommentDetail/CommentDetail';
 
-const Comments = () => {
+const Comments = (props) => {
     const [comments, setComments] = useState([]);
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/comments')
+        fetch(`https://jsonplaceholder.typicode.com/comments?postId=${props.postId}`)
         .then(res=> res.json())
         .then(data => setComments(data));
     
             
-    },[]);
+    },[props.postId]);
     return (
         <div>
             {

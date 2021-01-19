@@ -5,11 +5,11 @@ import { useHistory } from "react-router-dom";
 const Post = (props) => {
   const history = useHistory();
   const handleClick= (postId) => {
-  const url = `/post/${id}`;
+  const url = `/post/${postId}`;
   history.push(url);
 
 }
-const{id, title} = (props.post);
+const{id, title} = props.post;
   
     return (
         <div>

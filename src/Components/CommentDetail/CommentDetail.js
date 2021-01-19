@@ -1,25 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import CommentRoundedIcon from '@material-ui/icons/CommentRounded';
+import ListItemText from '@material-ui/core/ListItemText';
+import Box from '@material-ui/core/Box';
+
+
 
 const CommentDetail = (props) => {
     const {name, email, body, postId, id} = (props.comment);
-    const [detailCom, setDetailCom] = useState([]);
-    useEffect(()=>{
-        fetch (`https://jsonplaceholder.typicode.com/comments?postId=${postId}`)
-        .then(res => res.json())
-        .then(data => setDetailCom(data))
-    }, [postId]);
     
+    
+    
+  
 
     return (
-        <div>
-            <br/>
-            <h1>Comments</h1>
+        <Box width="100%" borderRadius="5%" margin="3%" bgcolor="primary.main" color="info.contrastText" boxShadow={4} p={3} >
+        
+         <CommentRoundedIcon> </CommentRoundedIcon>
+            <ListItemText primary="Comment"/>
             <h3>Name: {name}</h3>
             <h3>Email: {email}</h3>
             <h4>Body: {body}</h4>
             <h4>PostId: {postId}</h4>
             <p>Id: {id}</p>
-        </div>
+            <br/>
+            <br/>
+        </Box>
     );
 };
 
